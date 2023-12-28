@@ -6,21 +6,21 @@ package tasks;
 import java.util.Random;
 
 public class Task3 {
-    public static int[] zeroElement(int[] arrayTwo) {
+    public static int[] zeroElement(int[] arrayThree) {
         Random random = new Random();
-        int min = 30, max = 0;
-        for (int i = 0; i < arrayTwo.length; i++) {
-            arrayTwo[i] = random.nextInt(30);
-            System.out.print("[" + arrayTwo[i] + "] ");
-            if (arrayTwo[i] > max) {
-                max = arrayTwo[i];
-            } else if (arrayTwo[i] < min) {
-                min = arrayTwo[i];
+        boolean elZero = false;
+        for (int i = 0; i < arrayThree.length; i++) {
+            arrayThree[i] = random.nextInt(2);
+            System.out.print("[" + arrayThree[i] + "] ");
+        }
+        for (int j = 0; j < arrayThree.length; j++) {
+            if (arrayThree[j] == 0) {
+                if (arrayThree[j + 1] == 0 || arrayThree[j - 1] == 0) {
+                    elZero = true;
+                }
             }
         }
-        int result = max - min;
-        System.out.println("\n" + "Разница между самым большим и самым маленьким элементами второго массива: " + result);
-        return arrayTwo;
-
+        System.out.println("\n" + "Наличие в третьем массиве двух соседних элементов с нулевым значением: " + elZero);
+        return arrayThree;
     }
 }
